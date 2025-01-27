@@ -1,3 +1,49 @@
+
+def chocolate_maker(small, big, x):
+
+    big_bars = big * 5
+    if(big_bars + small == x):
+        return True
+    else: False
+    
+
+def main():
+    print(chocolate_maker(3, 1, 8))  # Output: True
+    print(chocolate_maker(3, 1, 9))  # Output: False
+    print(chocolate_maker(3, 2, 10)) # Output: True
+    
+
+if __name__ == "__main__":
+    main()
+
+
+
+def fix_age(age):
+    if age >= 13 and age < 15 or age > 16 and age <= 19:
+        return 0
+    else:
+        return age
+
+
+def filter_teens(a=13, b=13, c=13):
+    return fix_age(a) + fix_age(b) + fix_age(c)    
+
+def main():
+    print(filter_teens())           # Output: 0
+    print(filter_teens(1, 2, 3))    # Output: 6
+    print(filter_teens(2, 13, 1))   # Output: 3
+    print(filter_teens(2, 1, 15))   # Output: 18
+    
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
 import calendar
 date = input("Enter a date: ")
 
