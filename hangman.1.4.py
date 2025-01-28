@@ -13,9 +13,11 @@ HANGMAN_ASCII_ART = """
                      |___/"""
 
 MAX_TRIES = rand.randint(5,10)
-print("Welcome to the game Hangman!" , HANGMAN_ASCII_ART,"\n", MAX_TRIES,"\n\n\n\n")
+
+print("\n\n\nWelcome to the game Hangman!" , HANGMAN_ASCII_ART,"\n\n\n", "this is your max tries: ", MAX_TRIES,"\n\n\n")
 
 word = input("Enter your word: ")
+
 
 word_length = len(word)
 
@@ -23,8 +25,21 @@ word_print = '- ' * word_length
 
 print(word_print)
 
+
 guess = input("enter your guesses: ")
 guess = guess.lower()
+
+def is_valid_input(letter_guessed):
+    """  פונקציה שמקבלת אות ובודקת אם האות תקינה לפי התנאים הבאים: """
+    if len(letter_guessed) > 1 :
+        return False
+    elif letter_guessed.isalpha() == True:
+        return False
+    else:
+        return True
+
+print(is_valid_input(input("enter your guesses: ")))
+    
 
 guess_length = len(guess)
 

@@ -1,4 +1,25 @@
 
+
+import os # Please ignore this line
+os.environ['PAGER'] = 'cat' # Please ignore this line
+
+
+def func(num1, num2):
+    """
+    תוכנית שמקבלת שני מספרים ומחברת אותם"""
+    return num1 + num2
+
+def main():
+    help(func)
+    print(func(3, 4))
+
+
+if __name__ == '__main__':
+    main()
+
+
+
+
 def chocolate_maker(small, big, x):
 
     big_bars = big * 5
