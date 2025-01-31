@@ -1,5 +1,7 @@
 import random as rand
 
+second_list = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
+print(second_list[1][0][1])                   
 THE_CHOSEN_WARD =""
 
 HANGMAN_ASCII_ART = """ 

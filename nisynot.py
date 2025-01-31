@@ -1,71 +1,27 @@
-
-
-import os # Please ignore this line
-os.environ['PAGER'] = 'cat' # Please ignore this line
-
-
-def func(num1, num2):
-    """
-    תוכנית שמקבלת שני מספרים ומחברת אותם"""
-    return num1 + num2
-
-def main():
-    help(func)
-    print(func(3, 4))
-
-
-if __name__ == '__main__':
-    main()
-
-
-
-
-def chocolate_maker(small, big, x):
-
-    big_bars = big * 5
-    if(big_bars + small == x):
-        return True
-    else: False
-    
-
-def main():
-    print(chocolate_maker(3, 1, 8))  # Output: True
-    print(chocolate_maker(3, 1, 9))  # Output: False
-    print(chocolate_maker(3, 2, 10)) # Output: True
-    
-
-if __name__ == "__main__":
-    main()
-
-
-
-def fix_age(age):
-    if age >= 13 and age < 15 or age > 16 and age <= 19:
-        return 0
-    else:
-        return age
-
-
-def filter_teens(a=13, b=13, c=13):
-    return fix_age(a) + fix_age(b) + fix_age(c)    
-
-def main():
-    print(filter_teens())           # Output: 0
-    print(filter_teens(1, 2, 3))    # Output: 6
-    print(filter_teens(2, 13, 1))   # Output: 3
-    print(filter_teens(2, 1, 15))   # Output: 18
-    
-
-if __name__ == "__main__":
-    main()
-
-
-
-
-
-
-
 import calendar
+
+list1 = [1, 2, 3, 4]
+list2 = [5,6,7]
+list3 = list1 + list2
+list4 = [list1 + list2]
+
+print(len(list2 * list1[1]))
+
+
+def format_list(my_list):
+    new_list = my_list[0:-1:2]
+
+    new_list1 = [" and " + my_list[-1]]
+    new_list = new_list + new_list1
+    print(new_list)
+
+my_list = ["hydrogen", "helium", "lithium", "beryllium", "boron", "magnesium"]
+format_list(my_list)
+    
+
+
+
+
 date = input("Enter a date: ")
 
 day = int(date[0:2])
