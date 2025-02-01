@@ -1,23 +1,17 @@
 import calendar
 
-list1 = [1, 2, 3, 4]
-list2 = [5,6,7]
-list3 = list1 + list2
-list4 = [list1 + list2]
-
-print(len(list2 * list1[1]))
 
 
-def format_list(my_list):
-    new_list = my_list[0:-1:2]
 
-    new_list1 = [" and " + my_list[-1]]
-    new_list = new_list + new_list1
-    print(new_list)
-
-my_list = ["hydrogen", "helium", "lithium", "beryllium", "boron", "magnesium"]
-format_list(my_list)
+def longest_string(strings):
+    if not strings:
+        return None
+    return max(strings, key=len)
     
+    # דוגמה לשימוש בפונקציה
+my_list = ["hydrogen", "helium", "lithium", "beryllium", "boron", "magnesium"]
+print(longest_string(my_list))  # Output: "beryllium"
+
 
 
 

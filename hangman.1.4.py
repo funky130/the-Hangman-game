@@ -1,9 +1,4 @@
 import random as rand
-
-second_list = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
-print(second_list[1][0][1])                   
-THE_CHOSEN_WARD =""
-
 HANGMAN_ASCII_ART = """ 
   _    _                                         
  | |  | |                                        
@@ -19,47 +14,41 @@ MAX_TRIES = rand.randint(5,10)
 print("\n\n\nWelcome to the game Hangman!" , HANGMAN_ASCII_ART,"\n\n\n", "this is your max tries: ", MAX_TRIES,"\n\n\n")
 
 word = input("Enter your word: ")
-
-
 word_length = len(word)
-
 word_print = '- ' * word_length
+print("\n", word_print, "\n")
 
-print(word_print)
+old_letters_guessed = ['a', 'p', 'c', 'f']
 
-
-guess = input("enter your guesses: ")
-guess = guess.lower()
-
-def is_valid_input(letter_guessed):
-    """  פונקציה שמקבלת אות ובודקת אם האות תקינה לפי התנאים הבאים: """
-    if len(letter_guessed) > 1 :
-        return False
-    elif letter_guessed.isalpha() == True:
+def check_valid_input(letter_guessed, old_letters_guessed):
+    """בודקת גם אם כבר השתמשו באות המופיעה  פונקציה שמקבלת אות ובודקת אם האות תקינה לפי התנאים הבאים: """
+    letter_guessed = letter_guessed.lower()
+    if (len(letter_guessed) > 1) or (letter_guessed.isalpha() == False) or (letter_guessed in old_letters_guessed) :
         return False
     else:
         return True
 
-print(is_valid_input(input("enter your guesses: ")))
-    
 
-guess_length = len(guess)
+def add_to_list(letter_guessed, old_letters_guessed):
+    letter_guessed = letter_guessed.lower()
+    old_letters_guessed.append(letter_guessed)
+    return old_letters_guessed
 
+def try_update_letter_guessed(letter_guessed, old_letters_guessed):
+    letter_guessed = letter_guessed.lower()
+    if check_valid_input(letter_guessed, old_letters_guessed) == True:
+        add_to_list(letter_guessed, old_letters_guessed)
+        return True
+    else:
+        print("X")
+        print(" -> ".join(old_letters_guessed))
+        return False
 
-if guess_length > 1 and not guess.isalpha():
-    print("E3")
+letter_guessed = input("Enter your letter: ")
 
-elif guess_length > 1:
-    print("E1")
+print(try_update_letter_guessed(letter_guessed , old_letters_guessed))
 
-elif not guess.isalpha():
-    print("E2")
-
-
-
-print(guess)
-
-
+print(old_letters_guessed)
 
 
 
