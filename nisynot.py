@@ -1,11 +1,16 @@
 import calendar
 
 
+
+
+
+
+
 def is_greater(my_list, n):
     new_list = []
-    for i in my_list:
-        if i > n:
-            new_list.append(i)
+    for num in my_list:
+        if num > n: 
+            new_list.append(num)
 
     return new_list
 
@@ -17,7 +22,6 @@ def longest_string(strings):
         return None
     return max(strings, key=len)
     
-    # דוגמה לשימוש בפונקציה
 my_list = ["hydrogen", "helium", "lithium", "beryllium", "boron", "magnesium"]
 print(longest_string(my_list))  # Output: "beryllium"
 
