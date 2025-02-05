@@ -46,6 +46,8 @@ def try_update_letter_guessed(letter_guessed, old_letters_guessed):
 
 letter_guessed = input("Enter your letter: ")
 
+
+
 print(try_update_letter_guessed(letter_guessed , old_letters_guessed))
 
 print(old_letters_guessed)

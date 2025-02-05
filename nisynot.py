@@ -1,7 +1,16 @@
 import calendar
 
 
+def is_greater(my_list, n):
+    new_list = []
+    for i in my_list:
+        if i > n:
+            new_list.append(i)
 
+    return new_list
+
+result = is_greater([1, 30, 25, 60, 27, 28], 5)
+print(result)
 
 def longest_string(strings):
     if not strings:
