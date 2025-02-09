@@ -51,17 +51,26 @@ letter_guessed = input("Enter your letter: ")
 
 print(try_update_letter_guessed(letter_guessed , old_letters_guessed))
 
-print(old_letters_guessed)
-
+print(old_letters_guessed, "\n")
 def show_hidden_word(secret_word, old_letters_guessed):
-    word_print = '- ' * len(secret_word)
-    for i in secret_word:
-        if(i == old_letters_guessed[i]):
+    word_print = ""
+    for letter in secret_word:
+        if letter in old_letters_guessed:
+            word_print += letter + " "
+        else:
+            word_print += "_ "
+    return word_print.strip()
+
+print(show_hidden_word(secret_word, old_letters_guessed)) 
 
 
+def check_win(secret_word, old_letters_guessed):
+    for letter in secret_word:
+        if letter not in old_letters_guessed:
+            return False
+    else: return True
 
-
-
+print(check_win("pac", old_letters_guessed))
 
 
 
