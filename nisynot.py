@@ -1,8 +1,17 @@
 import calendar
 
 
+def numbers_letters_count(my_str):
+    list = []
+    for i in my_str:
+        if i.isalpha():
+            list.append(i)
+    for i in my_str:
+        if i.isdigit():
+            list.append(i)
+    return list
 
-
+print(numbers_letters_count("Python 3.6.3"))
 
 
 

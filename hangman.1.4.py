@@ -1,3 +1,4 @@
+#In Your Face
 import random as rand
 HANGMAN_ASCII_ART = """ 
   _    _                                         
@@ -13,8 +14,8 @@ MAX_TRIES = rand.randint(5,10)
 
 print("\n\n\nWelcome to the game Hangman!" , HANGMAN_ASCII_ART,"\n\n\n", "this is your max tries: ", MAX_TRIES,"\n\n\n")
 
-word = input("Enter your word: ")
-word_length = len(word)
+secret_word = input("Enter your secret_word: ")
+word_length = len(secret_word)
 word_print = '- ' * word_length
 print("\n", word_print, "\n")
 
@@ -51,6 +52,32 @@ letter_guessed = input("Enter your letter: ")
 print(try_update_letter_guessed(letter_guessed , old_letters_guessed))
 
 print(old_letters_guessed)
+
+def show_hidden_word(secret_word, old_letters_guessed):
+    word_print = '- ' * len(secret_word)
+    for i in secret_word:
+        if(i == old_letters_guessed[i]):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
