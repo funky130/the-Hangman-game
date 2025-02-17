@@ -1,5 +1,18 @@
 import calendar
 
+data = ("self", "py", 1.543)
+format_string = "Hello %s.%s learner, you have only %s units left before you master the course."
+print(format_string % data)
+
+def are_files_equal(file1, file2):
+    file1 = open(file1, "r")
+    file2 = open(file2, "r")
+    if file1.read() == file2.read():
+        return True
+    else:
+        return False
+
+print(are_files_equal("file1.txt", "file3.txt"))
 
 def numbers_letters_count(my_str):
     list = []

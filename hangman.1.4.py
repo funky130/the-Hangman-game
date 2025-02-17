@@ -1,5 +1,39 @@
 #In Your Face
 import random as rand
+
+HANGMAN_PHOTOS = {"photo1" : """    x-------x""", "photo2" : """    x-------x
+    |
+    |
+    |
+    |
+    |""" , "photo3" : """    x-------x
+    |       |
+    |       0
+    |
+    |
+    |""" , "photo4" : """    x-------x
+    |       |
+    |       0
+    |       |
+    |
+    |
+""" , "photo5" : """    x-------x
+    |       |
+    |       0
+    |      /|/
+    |
+    |""" , "photo6" : """    x-------x
+    |       |
+    |       0
+    |      /|/
+    |      /
+    |""", "photo7" : """    x-------x
+    |       |
+    |       0
+    |      /|/
+    |      / /
+    |"""}
+
 HANGMAN_ASCII_ART = """ 
   _    _                                         
  | |  | |                                        
@@ -10,9 +44,9 @@ HANGMAN_ASCII_ART = """
                       __/ |                      
                      |___/"""
 
-MAX_TRIES = rand.randint(5,10)
+num_of_tries = rand.randint(5,10)
 
-print("\n\n\nWelcome to the game Hangman!" , HANGMAN_ASCII_ART,"\n\n\n", "this is your max tries: ", MAX_TRIES,"\n\n\n")
+print("\n\n\nWelcome to the game Hangman!" , HANGMAN_ASCII_ART,"\n\n\n", "this is your max tries: ", num_of_tries,"\n\n\n")
 
 secret_word = input("Enter your secret_word: ")
 word_length = len(secret_word)
@@ -74,62 +108,8 @@ print(check_win("pac", old_letters_guessed))
 
 
 
+def print_hangman(num_of_tries):
+    print(HANGMAN_PHOTOS["photo" + str(num_of_tries)])
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-print("    x-------x")
-print("""    x-------x
-    |
-    |
-    |
-    |
-    |""")
-print("""    x-------x
-    |       |
-    |       0
-    |
-    |
-    |""")
-
-print("""    x-------x
-    |       |
-    |       0
-    |       |
-    |
-    |
-""")
-
-print("""    x-------x
-    |       |
-    |       0
-    |      /|/
-    |
-    |""")
-
-print("""    x-------x
-    |       |
-    |       0
-    |      /|/
-    |      /
-    |""")
-
-print("""    x-------x
-    |       |
-    |       0
-    |      /|/
-    |      / /
-    |""")
+print(print_hangman(7))
