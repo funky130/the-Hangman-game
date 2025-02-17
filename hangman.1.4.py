@@ -1,4 +1,3 @@
-#In Your Face
 import random as rand
 
 HANGMAN_PHOTOS = {"photo1" : """    x-------x""", "photo2" : """    x-------x
