@@ -112,3 +112,17 @@ def print_hangman(num_of_tries):
 
 
 print(print_hangman(7))
+
+
+
+def choose_word(file_path, index):
+    file = open(file_path, 'r')
+    words = file.read().split()
+    file.close()
+    words = set(words)
+    return (len(words), words[(index - 1) % len(words)])
+
+print(choose_word("file1.txt", 3))
+ 
+
+
