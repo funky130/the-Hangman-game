@@ -116,7 +116,7 @@ def choose_word(file_path, index):
 
  
 def main():
-    old_letters_guessed = ['a', 'p', 'c', 'f']
+    old_letters_guessed = []
     num_of_tries = 6
     
 
@@ -126,10 +126,15 @@ def main():
     print("ok, lets start the game!\n")
     print_hangman(1)  # Call print_hangman directly
     secret_word = str(choose_word(file_path, index))
-    print("\n", word_shadow(secret_word), "\n")
+    print("\nthis is your secret word!!!\n", word_shadow(secret_word), "\n")
 
-    while num_of_tries > MAX_TRIES:
+    while num_of_tries < MAX_TRIES:
         letter_guessed = input("Enter your letter: ")
+        try_update_letter_guessed(letter_guessed, old_letters_guessed)
+        if check_win(secret_word, old_letters_guessed):
+            print("\n yu won!!!")
+            break
+            
 
 
 
