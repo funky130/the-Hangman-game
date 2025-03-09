@@ -1,32 +1,32 @@
 import random as rand
 
-HANGMAN_PHOTOS = {"photo1" : """    x-------x""", "photo2" : """    x-------x
+HANGMAN_PHOTOS = {"photo1" : """    x-------x""", "photo2" : """   x-------x
     |
     |
     |
     |
-    |""" , "photo3" : """    x-------x
+    |""" , "photo3" : """   x-------x
     |       |
     |       0
     |
     |
-    |""" , "photo4" : """    x-------x
+    |""" , "photo4" : """   x-------x
     |       |
     |       0
     |       |
     |
     |
-""" , "photo5" : r"""    x-------x
+""" , "photo5" : r"""   x-------x
     |       |
     |       0
     |      /|\
     |
-    |""" , "photo6" : r"""    x-------x
+    |""" , "photo6" : r"""   x-------x
     |       |
     |       0
     |      /|\
     |      /
-    |""", "photo7" : r"""    x-------x
+    |""", "photo7" : r"""   x-------x
     |       |
     |       0
     |      /|\
@@ -43,7 +43,7 @@ HANGMAN_ASCII_ART = r"""
                       __/ |                          |
                      |___/"""
 
-MAX_TRIES = rand.randint(5,10)
+MAX_TRIES = rand.randint(5,7)
 
 def word_shadow(secret_word):
     return "_ " * len(secret_word)
@@ -99,9 +99,9 @@ def check_win(secret_word, old_letters_guessed):
 
 
 def print_hangman(num_of_tries):
-    print(HANGMAN_PHOTOS["photo" + str(num_of_tries)])
+    print(f"\n{ HANGMAN_PHOTOS["photo" + str(num_of_tries)] }\n")
     if(num_of_tries > MAX_TRIES):
-        print("error can't do that :(")
+        print("error no more photos left :(")
 
 
 def choose_word(file_path, index):
@@ -119,30 +119,35 @@ def choose_word(file_path, index):
 def main():
     old_letters_guessed = []
     num_of_tries = 0
-    
+    num_of_overall_tries = 0
 
     print("\n\nWelcome to the game Hangman!" , HANGMAN_ASCII_ART,"\n\n\n", "this is your max tries: ", MAX_TRIES,"\n\n\n")
-    file_path = "words.txt" # input("Enter file path: ")
-    index = int(rand.randint(1,50)) # input("Enter index: ")
-    print("ok, lets start the game!\n")
+    file_path = input("Enter file path: ")
+    index = int(input("Enter index: "))
+    print("\nok, lets start the game!\n")
     print_hangman(1)  # Call print_hangman directly
     secret_word = str(choose_word(file_path, index))
     print("\nthis is your secret word!!!\n", word_shadow(secret_word), "\n")
 
-    for num_of_tries in range(MAX_TRIES) :
-        letter_guessed = input("Enter your letter: ")
+    while(num_of_tries <= MAX_TRIES):
+        letter_guessed = input("\nEnter your letter: ")
+        num_of_overall_tries += 1
         try_update_letter_guessed(letter_guessed, old_letters_guessed)
         if check_win(secret_word,old_letters_guessed) == True:
-            print(f"you win!!! \n it took you {num_of_tries} tries. this is your secret word: {secret_word}")
+            print(f"\nyou win!!! \n\nit took you {num_of_overall_tries} tries. this is your secret word: {secret_word}\n")
             break
-        elif(letter_guessed in secret_word ):
-            print(f"corect! {show_hidden_word(secret_word, old_letters_guessed)} ")
+        elif(letter_guessed.lower() in secret_word ):
+            print(f"correct! {show_hidden_word(secret_word, old_letters_guessed)} ")
         else:
             num_of_tries += 1
-            print(print_hangman(num_of_tries), "\n")
-            print(f"trash can: {old_letters_guessed}")
-    
+            print_hangman(num_of_tries)
+            if(num_of_tries == MAX_TRIES):
+                print(f"you lose :(\nthis was the secret word: {secret_word} \ntry again next time!!")
+                break
+            print(f"not correct  :( \nold letters guessed: {old_letters_guessed} \n{show_hidden_word(secret_word, old_letters_guessed)}")
+            
 
+    
 
 if __name__ == "__main__":
     main()
